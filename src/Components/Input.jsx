@@ -2,7 +2,7 @@ const Input = ({ length, width }) => {
   return (
     <>
       <div className="input" id="inputContainer">
-        <div>
+        <div className="">
           <p>What is the length of the room in feet?</p>
           <input
             type="text"

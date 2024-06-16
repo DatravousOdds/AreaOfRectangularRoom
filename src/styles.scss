@@ -1,0 +1,56 @@
+$primaryColor: #2AC4D5;
+$secondaryColor: #2A6FD5;
+$buttonColor: #2AD590;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  
+}
+
+div {
+  padding: 6px;
+}
+body {
+  background-color: $primaryColor;
+  color: white;
+  font-family: 'Arial', sans-serif;
+
+}
+
+input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid #2AC4D5;
+  color: white;
+  background-color: $secondaryColor;
+  box-shadow: 1px 1px 5px $secondaryColor;
+}
+
+#inputContainer {
+  padding: 1rem;
+
+  p {
+    font-size: 1.1rem;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // border: 2px solid red;
+  padding: 1rem;
+
+  #resultContainer {
+    // border: 2px solid red;
+    border: 2px solid #2AC4D5;
+    box-shadow: 1px 1px 6px $secondaryColor;
+    background-color: $secondaryColor;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  
+}
