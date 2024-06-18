@@ -1,6 +1,9 @@
 $primaryColor: #2AC4D5;
 $secondaryColor: #2A6FD5;
 $buttonColor: #2AD590;
+$defaultWhite: #FFFFFF;
+$ArialFont: 'Arial', sans-serif;
+
 
 * {
   box-sizing: border-box;
@@ -14,7 +17,7 @@ div {
 }
 body {
   background-color: $primaryColor;
-  color: white;
+  color: $defaultWhite;
   font-family: 'Arial', sans-serif;
 
 }
@@ -22,7 +25,7 @@ body {
 input {
   padding: 8px;
   border-radius: 5px;
-  border: 2px solid #2AC4D5;
+  border: 2px solid $primaryColor;
   color: white;
   background-color: $secondaryColor;
   box-shadow: 1px 1px 5px $secondaryColor;
@@ -51,6 +54,35 @@ main {
     background-color: $secondaryColor;
     border-radius: 10px;
     padding: 1rem;
+  }
+
+  input::placeholder {
+    color: white;
+  }
+
+  .custom-select {
+    
+    
+    width: 300px;
+    padding: 6px;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    background-color: $secondaryColor;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 1px 1px 6px $secondaryColor;
+    border: 2px solid #2AC4D5;
+    text-align: center;
+    letter-spacing: 0.27px;
+  }
+
+  select {
+    
+    
+  }
+
+  .dd-container {
+    // border: 2px solid red;
   }
   
 }

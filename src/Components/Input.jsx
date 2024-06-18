@@ -1,4 +1,4 @@
-const Input = ({ length, width }) => {
+const Input = ({ width, length }) => {
   return (
     <>
       <div className="input" id="inputContainer">
@@ -7,8 +7,8 @@ const Input = ({ length, width }) => {
           <input
             type="text"
             id="input"
-            onChange={length}
-            placehlder="Enter your text here..."
+            onChange={width}
+            placeholder="Enter your text here..."
           />
         </div>
 
@@ -17,13 +17,19 @@ const Input = ({ length, width }) => {
           <input
             type="text"
             id="input"
-            onChange={width}
+            onChange={length}
             placeholder="Enter your text here..."
           />
         </div>
       </div>
     </>
   );
+
+  // PropTypes for Input component
+  Input.propType = {
+    handleChangeLength: PropTypes.func.isRequired,
+    handleChangeWidth: PropTypes.func.isRequired,
+  }
 };
 
 export default Input;
