@@ -1,4 +1,4 @@
-const Input = ({ width, length }) => {
+const Input = ({ handleChangeWidth, handleLengthChange }) => {
   return (
     <>
       <div className="input" id="inputContainer">
@@ -7,7 +7,7 @@ const Input = ({ width, length }) => {
           <input
             type="text"
             id="input"
-            onChange={width}
+            onChange={handleLengthChange}
             placeholder="Enter your text here..."
           />
         </div>
@@ -17,7 +17,7 @@ const Input = ({ width, length }) => {
           <input
             type="text"
             id="input"
-            onChange={length}
+            onChange={handleChangeWidth}
             placeholder="Enter your text here..."
           />
         </div>

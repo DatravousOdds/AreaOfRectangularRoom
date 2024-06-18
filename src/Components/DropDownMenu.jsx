@@ -1,9 +1,12 @@
-const DropDownMenu = ({ metric }) => {
+const DropDownMenu = ({  metricChange }) => {
+
+
+  
   return (
     <>
       <div className="dd-container">
         <select
-          onChange={metric}
+          onChange={metricChange}
           className="custom-select"
           name="metric-selection"
           id="metric-selection"

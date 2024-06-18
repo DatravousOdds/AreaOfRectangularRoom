@@ -13,32 +13,35 @@ export default function App() {
   const [error, setError] = useState("")
 
   const handleChangeLength = (e) => {
-    setLength(e.target.value);
-    console.log("This is the length:", length);
+    let value = e.target.value;
+    setLength(value);
+    console.log("This is the length:", value);
   };
 
   const handleChangeWidth = (e) => {
-    setWidth(e.target.value);
-    console.log("This is the width:", width);
-    console.log("Length of width:", width.length)
+    let value = e.target.value
+    setWidth(value);
+    console.log("This is the width:", value);
+    
   };
 
-  const merticChangeHandler = (e) => {
-    setMetric(e.target.value);
-    if(e.target.value == "feet"){
-      console.log(e.target.value)
-    } else if (e.target.value == "meter") {
-      console.log(e.target.value)
-    }
+  const metricChangeHandler = (e) => {
+    let value = e.target.value;
+    setMetric(value);
+    // console.log(value);
+    
   };
 
-  
+  const validateInput = () => {
+    if(metric == "meter")
+      console.log("m")
+  }
 
   return (
     <main>
       <Header />
-      <DropDownMenu metric={merticChangeHandler} />
-      <Input length={handleChangeLength} width={handleChangeWidth} />
+      <DropDownMenu metric={metric} metricChange={metricChangeHandler} />
+      <Input handleLengthChange={handleChangeLength} handleWidthChange={handleChangeWidth} />
       <ErrorMessage length={length} width={width} mertic={metric} error={error}/>
       <Result length={length} width={width} />
     </main>
