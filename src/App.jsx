@@ -4,7 +4,7 @@ import Result from "./Components/Result";
 import Header from "./Components/Header";
 import Input from "./Components/Input";
 import ErrorMessage from "./Components/ErrorMessage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [length, setLength] = useState("");
@@ -28,14 +28,19 @@ export default function App() {
   const metricChangeHandler = (e) => {
     let value = e.target.value;
     setMetric(value);
-    // console.log(value);
+    validateInput(metric)
     
   };
 
-  const validateInput = () => {
-    if(metric == "meter")
-      console.log("m")
+  const validateInput = (length, width) => {
+    if(isNaN(length) || isNaN(width)) {
+      console.log("Please enter numeric values");
+    }
   }
+
+  useEffect(() => {
+    validateInput(length, width);
+  }, [length, width])
 
   return (
     <main>
