@@ -1,9 +1,9 @@
-const Input = ({ handleChangeWidth, handleLengthChange }) => {
+const Input = ({ handleChangeWidth, handleLengthChange, metric }) => {
   return (
     <>
       <div className="input" id="inputContainer">
         <div className="">
-          <p>What is the length of the room in feet?</p>
+          <p>{metric == "feet" ? "What is the length of the room in feet?" : "What is the length of the room in meters?"}</p>
           <input
             type="text"
             id="input"
@@ -13,7 +13,7 @@ const Input = ({ handleChangeWidth, handleLengthChange }) => {
         </div>
 
         <div>
-          <p>What is the width of the room in feet?</p>
+          <p>{metric == "meter" ? "What is the length of the room in meters?" : "What is the length of the room in feet?"}</p>
           <input
             type="text"
             id="input"

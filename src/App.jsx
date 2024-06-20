@@ -34,7 +34,14 @@ export default function App() {
 
   const validateInput = (length, width) => {
     if(isNaN(length) || isNaN(width)) {
-      console.log("Please enter numeric values");
+      setError("Please enter numeric values only!")
+      console.log(error);
+    } else if (length <= 0 || width <= 0) {
+      setError("Please enter positive values only!")
+      console.log(error);
+    } else {
+      setError("")
+      console.log(error);
     }
   }
 
@@ -46,8 +53,8 @@ export default function App() {
     <main>
       <Header />
       <DropDownMenu metric={metric} metricChange={metricChangeHandler} />
-      <Input handleLengthChange={handleChangeLength} handleWidthChange={handleChangeWidth} />
-      <ErrorMessage length={length} width={width} mertic={metric} error={error}/>
+      <Input metric={metric} handleLengthChange={handleChangeLength} handleWidthChange={handleChangeWidth} />
+      <ErrorMessage  error={error}/>
       <Result length={length} width={width} />
     </main>
   );
