@@ -10,7 +10,9 @@ export default function App() {
   const [length, setLength] = useState("");
   const [width, setWidth] = useState("");
   const [metric, setMetric] = useState("");
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+  const [sqFt, setSqFt] = useState("0");
+  const [sqM, setSqM] = useState("0");
 
   const handleChangeLength = (e) => {
     let value = e.target.value;
@@ -19,43 +21,61 @@ export default function App() {
   };
 
   const handleChangeWidth = (e) => {
-    let value = e.target.value
+    let value = e.target.value;
     setWidth(value);
     console.log("This is the width:", value);
-    
   };
 
   const metricChangeHandler = (e) => {
     let value = e.target.value;
     setMetric(value);
-    validateInput(metric)
     
   };
 
   const validateInput = (length, width) => {
-    if(isNaN(length) || isNaN(width)) {
-      setError("Please enter numeric values only!")
+    if (isNaN(length) || isNaN(width)) {
+      setError("Please enter numeric values only!");
       console.log(error);
-    } else if (length <= 0 || width <= 0) {
-      setError("Please enter positive values only!")
+    } else if (parseFloat(length) < 0 || parseFloat(width) < 0) {
+      setError("Please enter positive values only!");
       console.log(error);
     } else {
-      setError("")
-      console.log(error);
+      setError("");
+      calculateArea(length, width)
     }
-  }
+  };
+
+  const calculateArea = (length, width) => {
+    
+    if (!isNaN(length) && !isNaN(width)) {
+      const sqFtArea = length * width;
+      const sqMArea = sqFtArea * 0.09290304;
+      setSqFt(sqFtArea.toFixed(2));
+      setSqM(sqMArea.toFixed(2));
+    }
+  };
 
   useEffect(() => {
     validateInput(length, width);
-  }, [length, width])
+  }, [length, width]);
 
   return (
     <main>
       <Header />
       <DropDownMenu metric={metric} metricChange={metricChangeHandler} />
-      <Input metric={metric} handleLengthChange={handleChangeLength} handleWidthChange={handleChangeWidth} />
-      <ErrorMessage  error={error}/>
-      <Result length={length} width={width} />
+      <Input
+        metric={metric}
+        handleLengthChange={handleChangeLength}
+        handleWidthChange={handleChangeWidth}
+      />
+      <ErrorMessage error={error} />
+      <Result
+        sqFt={sqFt}
+        sqM={sqM}
+        metric={metric}
+        length={length}
+        width={width}
+      />
     </main>
   );
 }

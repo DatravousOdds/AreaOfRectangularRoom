@@ -1,15 +1,14 @@
 const ErrorMessage = ({ error }) => {
   
-  return (
-    
-    
-    <>
-      
-      <div className="alert alert-warning">
-        <h1>{error}</h1>
+
+  if (error) {
+    return (
+      <div className="alert alert-danger">
+        <p>{error}</p>
       </div>
-    </>
-  )
-}
+    );
+  }
+  return null; // meaning there is no error message
+};
 
 export default ErrorMessage;

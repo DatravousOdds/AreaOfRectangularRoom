@@ -3,6 +3,8 @@ $secondaryColor: #2A6FD5;
 $buttonColor: #2AD590;
 $defaultWhite: #FFFFFF;
 $ArialFont: 'Arial', sans-serif;
+$errorMessage: #F9D7DA;
+$errorTextColor: #A11F23;
 
 
 * {
@@ -76,13 +78,16 @@ main {
     letter-spacing: 0.27px;
   }
 
-  select {
-    
+  .alert {
+    border: 1px solid red;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    margin: 1rem;
+    background-color: $errorMessage;
+    color: #A11F23;
     
   }
 
-  .dd-container {
-    // border: 2px solid red;
-  }
+  
   
 }

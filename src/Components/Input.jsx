@@ -1,9 +1,13 @@
-const Input = ({ handleChangeWidth, handleLengthChange, metric }) => {
+const Input = ({ handleWidthChange, handleLengthChange, metric }) => {
   return (
     <>
       <div className="input" id="inputContainer">
         <div className="">
-          <p>{metric == "feet" ? "What is the length of the room in feet?" : "What is the length of the room in meters?"}</p>
+          <p>
+            {metric == "meter"
+              ? "What is the length of the room in meters?"
+              : "What is the length of the room in feet?"}
+          </p>
           <input
             type="text"
             id="input"
@@ -13,11 +17,15 @@ const Input = ({ handleChangeWidth, handleLengthChange, metric }) => {
         </div>
 
         <div>
-          <p>{metric == "meter" ? "What is the length of the room in meters?" : "What is the length of the room in feet?"}</p>
+          <p>
+            {metric == "meter"
+              ? "What is the width of the room in meters?"
+              : "What is the width of the room in feet?"}
+          </p>
           <input
             type="text"
             id="input"
-            onChange={handleChangeWidth}
+            onChange={handleWidthChange}
             placeholder="Enter your text here..."
           />
         </div>
@@ -29,7 +37,7 @@ const Input = ({ handleChangeWidth, handleLengthChange, metric }) => {
   Input.propType = {
     handleChangeLength: PropTypes.func.isRequired,
     handleChangeWidth: PropTypes.func.isRequired,
-  }
+  };
 };
 
 export default Input;
